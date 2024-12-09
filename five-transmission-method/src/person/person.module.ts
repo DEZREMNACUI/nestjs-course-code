@@ -3,6 +3,6 @@ import { PersonController } from './person.controller';
 
 @Module({
   controllers: [PersonController],
-  providers: []
+  providers: [],
 })
 export class PersonModule {}
