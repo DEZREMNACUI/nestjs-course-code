@@ -3,6 +3,6 @@ import { OtherService } from './other.service';
 
 @Module({
   providers: [OtherService],
-  exports: [OtherService]
+  exports: [OtherService],
 })
 export class OtherModule {}
