@@ -9,22 +9,22 @@ import { AppService } from './app.service';
     AppService,
     {
       provide: 'app_service',
-      useClass: AppService
+      useClass: AppService,
     },
     {
       provide: 'person',
       useValue: {
         name: 'aaa',
-        age: 20
-      }
+        age: 20,
+      },
     },
     {
       provide: 'person2',
       useFactory() {
         return {
           name: 'bbb',
-          desc: 'cccc'
-        }
+          desc: 'cccc',
+        };
       },
     },
     {
@@ -35,8 +35,8 @@ import { AppService } from './app.service';
         });
         return {
           name: 'bbb',
-          desc: 'cccc'
-        }
+          desc: 'cccc',
+        };
       },
     },
     {
@@ -44,15 +44,15 @@ import { AppService } from './app.service';
       useFactory(person: { name: string }, appService: AppService) {
         return {
           name: person.name,
-          desc: appService.getHello()
-        }
+          desc: appService.getHello(),
+        };
       },
-      inject: ['person', AppService]
+      inject: ['person', AppService],
     },
     {
       provide: 'person4',
-      useExisting: 'person2'
-    }
+      useExisting: 'person2',
+    },
   ],
 })
 export class AppModule {}
