@@ -3,9 +3,11 @@ import { CccService } from './ccc.service';
 
 @Injectable()
 export class DddService {
-    constructor(@Inject(forwardRef(() => CccService)) private cccService: CccService) {}
+  constructor(
+    @Inject(forwardRef(() => CccService)) private cccService: CccService,
+  ) {}
 
-    ddd() {
-        return this.cccService.ccc()  + 'ddd';
-    }
+  ddd() {
+    return this.cccService.ccc() + 'ddd';
+  }
 }
