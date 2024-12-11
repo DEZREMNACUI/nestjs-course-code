@@ -1,5 +1,32 @@
 import { AaaFilter } from './aaa.filter';
-import { Controller, Get, HttpException, HttpStatus, Inject, ParseIntPipe, UseFilters, UseGuards, UseInterceptors, UsePipes, Param, ParseBoolPipe, Query, Optional, Post, Body, ValidationPipe, Put, Delete, Patch, SetMetadata, Options, Headers, Ip, Session, HostParam } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  Inject,
+  ParseIntPipe,
+  UseFilters,
+  UseGuards,
+  UseInterceptors,
+  UsePipes,
+  Param,
+  ParseBoolPipe,
+  Query,
+  Optional,
+  Post,
+  Body,
+  ValidationPipe,
+  Put,
+  Delete,
+  Patch,
+  SetMetadata,
+  Options,
+  Headers,
+  Ip,
+  Session,
+  HostParam,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { AaaGuard } from './aaa.guard';
 import { AaaInterceptor } from './aaa.interceptor';
@@ -28,8 +55,11 @@ export class AppController {
   }
 
   @Get('/xxx/:aaa')
-  getHello2(@Param('aaa', ParseIntPipe) aaa: number,@Query('bbb', ParseBoolPipe) bbb: boolean) {
-    console.log(typeof aaa,typeof bbb);
+  getHello2(
+    @Param('aaa', ParseIntPipe) aaa: number,
+    @Query('bbb', ParseBoolPipe) bbb: boolean,
+  ) {
+    console.log(typeof aaa, typeof bbb);
     console.log(aaa, bbb);
     return 'hello';
   }
@@ -38,30 +68,33 @@ export class AppController {
   getHello3(@Body() aaa: AaaDto) {
     console.log(aaa);
     return 'hello';
-  } 
+  }
 
   @Put()
   getHello4() {
-    return 'hello'
+    return 'hello';
   }
 
   @Delete()
   getHello5() {
-    return 'hello'
+    return 'hello';
   }
 
   @Patch()
   getHello6() {
-    return 'hello'
+    return 'hello';
   }
 
   @Options()
   getHello7() {
-    return 'hello'
+    return 'hello';
   }
-  
+
   @Get('/ccc')
-  header(@Headers('Accept') accept: string, @Headers() headers: Record<string, any>) {
+  header(
+    @Headers('Accept') accept: string,
+    @Headers() headers: Record<string, any>,
+  ) {
     console.log(accept, headers);
   }
 
@@ -70,13 +103,20 @@ export class AppController {
     console.log(ip);
   }
 
+  /**
+   * 处理 session 请求
+   * @param session Session 对象
+   * @returns session 中的计数值
+   */
   @Get('/session')
   session(@Session() session) {
-    if(!session.count) {
+    // 如果 session 中没有 count,初始化为 0
+    if (!session.count) {
       session.count = 0;
     }
+    // 计数加 1
     session.count = session.count + 1;
+    // 返回当前计数
     return session.count;
   }
 }
-

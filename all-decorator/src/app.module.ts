@@ -11,13 +11,17 @@ import { AaaController } from './aaa.controller';
 @Module({
   imports: [BbbModule, CccModule],
   controllers: [AppController, AaaController],
-  providers: [AppService, Guang, {
-    provide: 'Guang',
-    useFactory() {
-      return {
-        name: 'guang'
-      }
-    }
-  }],
+  providers: [
+    AppService,
+    Guang,
+    {
+      provide: 'Guang',
+      useFactory() {
+        return {
+          name: 'guang',
+        };
+      },
+    },
+  ],
 })
 export class AppModule {}
