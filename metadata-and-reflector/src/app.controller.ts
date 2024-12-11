@@ -1,6 +1,12 @@
 import { AaaInterceptor } from './aaa.interceptor';
 import { AaaGuard } from './aaa.guard';
-import { Controller, Get, SetMetadata, UseGuards, UseInterceptors } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  SetMetadata,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()

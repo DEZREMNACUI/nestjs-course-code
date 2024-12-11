@@ -10,8 +10,8 @@ export class AaaGuard implements CanActivate {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     console.log('guard');
-    console.log(this.reflector.get('roles', context.getHandler()))
-    console.log(this.reflector.get('roles', context.getClass()))
+    console.log(this.reflector.get('roles', context.getHandler()));
+    console.log(this.reflector.get('roles', context.getClass()));
 
     return true;
   }
