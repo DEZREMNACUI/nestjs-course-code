@@ -10,8 +10,10 @@ export class AaaGuard implements CanActivate {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-
-    const requiredRoles = this.reflector.get<Role[]>('roles', context.getHandler());
+    const requiredRoles = this.reflector.get<Role[]>(
+      'roles',
+      context.getHandler(),
+    );
 
     if (!requiredRoles) {
       return true;
