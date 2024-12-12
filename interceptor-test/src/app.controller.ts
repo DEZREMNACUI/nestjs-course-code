@@ -38,9 +38,9 @@ export class AppController {
   @Get('ddd')
   @UseInterceptors(TimeoutInterceptor)
   async ddd() {
-    await new Promise(resolve => setTimeout(resolve, 4000));
+    await new Promise((resolve) => setTimeout(resolve, 4000));
     return 'ddd';
-  }  
+  }
 
   @Get('eee')
   eee() {
