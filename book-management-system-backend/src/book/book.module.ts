@@ -6,8 +6,8 @@ import { DbModule } from 'src/db/db.module';
 @Module({
   imports: [
     DbModule.register({
-      path: 'books.json'
-    })
+      path: 'books.json',
+    }),
   ],
   controllers: [BookController],
   providers: [BookService],
