@@ -1,10 +1,16 @@
-import { ArgumentsHost, BadRequestException, Catch, ExceptionFilter, HttpException, Inject } from '@nestjs/common';
+import {
+  ArgumentsHost,
+  BadRequestException,
+  Catch,
+  ExceptionFilter,
+  HttpException,
+  Inject,
+} from '@nestjs/common';
 import { Response } from 'express';
 import { AppService } from './app.service';
 
 @Catch(HttpException)
 export class HelloFilter implements ExceptionFilter {
-
   @Inject(AppService)
   private service: AppService;
 
@@ -15,13 +21,13 @@ export class HelloFilter implements ExceptionFilter {
     const statusCode = exception.getStatus();
 
     const res = exception.getResponse() as { message: string[] };
-    
+
     response.status(statusCode).json({
-       code: statusCode,
-       message: res?.message?.join ? res?.message?.join(',') : exception.message,
-       error: 'Bad Request',
-       xxx: 111,
-       yyy: this.service.getHello()
-    })
+      code: statusCode,
+      message: res?.message?.join ? res?.message?.join(',') : exception.message,
+      error: 'Bad Request',
+      xxx: 111,
+      yyy: this.service.getHello(),
+    });
   }
 }

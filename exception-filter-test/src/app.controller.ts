@@ -1,4 +1,15 @@
-import { BadGatewayException, BadRequestException, Body, Controller, Get, HttpException, HttpStatus, NotFoundException, Post, UseFilters } from '@nestjs/common';
+import {
+  BadGatewayException,
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  NotFoundException,
+  Post,
+  UseFilters,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { AaaDto } from './aaa.dto';
 import { UnLoginException } from './unlogin.filter';
@@ -18,8 +29,8 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Post('aaa') 
-  aaa(@Body() aaaDto: AaaDto ){
+  @Post('aaa')
+  aaa(@Body() aaaDto: AaaDto) {
     return 'success';
   }
 }

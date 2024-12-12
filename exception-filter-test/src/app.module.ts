@@ -12,12 +12,12 @@ import { UnloginFilter } from './unlogin.filter';
     AppService,
     {
       provide: APP_FILTER,
-      useClass: HelloFilter
+      useClass: HelloFilter,
     },
     {
       provide: APP_FILTER,
-      useClass: UnloginFilter
-    }
+      useClass: UnloginFilter,
+    },
   ],
 })
 export class AppModule {}
