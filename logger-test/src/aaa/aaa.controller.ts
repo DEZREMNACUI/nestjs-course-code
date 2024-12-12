@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Inject } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Inject,
+} from '@nestjs/common';
 import { MyLogger } from 'src/MyLogger';
 import { AaaService } from './aaa.service';
 import { CreateAaaDto } from './dto/create-aaa.dto';
@@ -6,7 +15,6 @@ import { UpdateAaaDto } from './dto/update-aaa.dto';
 
 @Controller('aaa')
 export class AaaController {
-
   @Inject(MyLogger)
   private logger: MyLogger;
 
@@ -19,7 +27,7 @@ export class AaaController {
 
   @Get()
   findAll() {
-    this.logger.log('xxx', AaaController.name)
+    this.logger.log('xxx', AaaController.name);
     return this.aaaService.findAll();
   }
 
