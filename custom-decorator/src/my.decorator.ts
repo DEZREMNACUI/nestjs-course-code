@@ -9,8 +9,8 @@ export const MyHeaders = createParamDecorator(
 );
 
 export const MyQuery = createParamDecorator(
-    (key: string, ctx: ExecutionContext) => {
-      const request: Request = ctx.switchToHttp().getRequest();
-      return request.query[key];
-    },
-  );
+  (key: string, ctx: ExecutionContext) => {
+    const request: Request = ctx.switchToHttp().getRequest();
+    return request.query[key];
+  },
+);

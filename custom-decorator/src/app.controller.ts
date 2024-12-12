@@ -1,4 +1,12 @@
-import { Controller, Get, Headers, Query, SetMetadata, UseGuards, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Headers,
+  Query,
+  SetMetadata,
+  UseGuards,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { Aaa } from './aaa.decorator';
 import { AaaGuard } from './aaa.guard';
 import { AppService } from './app.service';
@@ -41,7 +49,6 @@ export class AppController {
     console.log(' header2', headers2);
   }
 
-
   @Get('hello6')
   getHello6(@Query('aaa') aaa, @MyQuery('bbb') bbb) {
     console.log('aaa', aaa);
@@ -49,10 +56,11 @@ export class AppController {
   }
 
   @Get('hello7')
-  getHello7(@Query('aaa', new ParseIntPipe()) aaa, @MyQuery('bbb', new ParseIntPipe()) bbb) {
+  getHello7(
+    @Query('aaa', new ParseIntPipe()) aaa,
+    @MyQuery('bbb', new ParseIntPipe()) bbb,
+  ) {
     console.log('aaa', aaa + 1);
     console.log('bbb', bbb + 1);
   }
-
-  
 }
