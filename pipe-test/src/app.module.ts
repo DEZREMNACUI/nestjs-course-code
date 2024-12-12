@@ -13,14 +13,14 @@ import { AppService } from './app.service';
       useFactory() {
         return {
           aaa: 1,
-          bbb: 2
-        }
-      }
-    }, 
+          bbb: 2,
+        };
+      },
+    },
     {
       provide: APP_PIPE,
-      useClass: ValidationPipe
-    }
+      useClass: ValidationPipe,
+    },
   ],
 })
 export class AppModule {}
