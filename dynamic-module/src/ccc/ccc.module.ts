@@ -1,8 +1,8 @@
-import { Module} from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { CccController } from './ccc.controller';
 import { ConfigurableModuleClass } from './ccc.module-definition';
 
 @Module({
-  controllers: [CccController]
+  controllers: [CccController],
 })
-export class CccModule extends ConfigurableModuleClass{}
+export class CccModule extends ConfigurableModuleClass {}

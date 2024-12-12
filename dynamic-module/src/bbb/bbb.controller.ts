@@ -1,13 +1,23 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Inject } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Inject,
+} from '@nestjs/common';
 import { BbbService } from './bbb.service';
 import { CreateBbbDto } from './dto/create-bbb.dto';
 import { UpdateBbbDto } from './dto/update-bbb.dto';
 
 @Controller('bbb')
 export class BbbController {
-  constructor(private readonly bbbService: BbbService,
-      @Inject('CONFIG_OPTIONS') private configOptions: Record<string, any>
-    ) {}
+  constructor(
+    private readonly bbbService: BbbService,
+    @Inject('CONFIG_OPTIONS') private configOptions: Record<string, any>,
+  ) {}
 
   @Post()
   create(@Body() createBbbDto: CreateBbbDto) {

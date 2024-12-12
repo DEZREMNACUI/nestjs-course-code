@@ -4,7 +4,6 @@ import { BbbController } from './bbb.controller';
 
 @Module({})
 export class BbbModule {
-
   static register(options: Record<string, any>): DynamicModule {
     return {
       module: BbbModule,
@@ -16,7 +15,7 @@ export class BbbModule {
         },
         BbbService,
       ],
-      exports: []
+      exports: [],
     };
   }
 }
